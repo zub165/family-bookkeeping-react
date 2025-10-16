@@ -15,8 +15,8 @@ import {
 } from '@mui/material';
 import { AccountBalance as BookIcon } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { LoginCredentials } from '../../types';
-import apiService from '../../services/api';
+import { LoginCredentials } from 'types';
+import apiService from 'services/api';
 
 const Login: React.FC = () => {
   const [credentials, setCredentials] = useState<LoginCredentials>({

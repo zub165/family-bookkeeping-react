@@ -21,8 +21,8 @@ import {
   Schedule as TimeIcon,
   TrendingUp as TrendingIcon,
 } from '@mui/icons-material';
-import { Statistics, FamilyMember, Expense, Mile, Hour } from '../../types';
-import apiService from '../../services/api';
+import { Statistics, FamilyMember, Expense, Mile, Hour } from 'types';
+import apiService from 'services/api';
 
 interface DashboardProps {
   familyMembers: FamilyMember[];

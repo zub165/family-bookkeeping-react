@@ -44,6 +44,7 @@ const FamilyMembers: React.FC<FamilyMembersProps> = ({ familyMembers, onUpdate }
     name: '',
     relation: '',
     email: '',
+    is_registered: false,
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -64,10 +65,11 @@ const FamilyMembers: React.FC<FamilyMembersProps> = ({ familyMembers, onUpdate }
         name: member.name,
         relation: member.relation,
         email: member.email || '',
+        is_registered: member.is_registered || false,
       });
     } else {
       setEditingMember(null);
-      setFormData({ name: '', relation: '', email: '' });
+      setFormData({ name: '', relation: '', email: '', is_registered: false });
     }
     setOpen(true);
     setError(null);
@@ -76,7 +78,7 @@ const FamilyMembers: React.FC<FamilyMembersProps> = ({ familyMembers, onUpdate }
   const handleClose = () => {
     setOpen(false);
     setEditingMember(null);
-    setFormData({ name: '', relation: '', email: '' });
+    setFormData({ name: '', relation: '', email: '', is_registered: false });
     setError(null);
   };
 
