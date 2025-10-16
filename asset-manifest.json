@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/family-bookkeeping-react/static/css/main.e6c13ad2.css",
+    "main.js": "/family-bookkeeping-react/static/js/main.38db7589.js",
+    "static/js/453.d8e63f4f.chunk.js": "/family-bookkeeping-react/static/js/453.d8e63f4f.chunk.js",
+    "index.html": "/family-bookkeeping-react/index.html",
+    "main.e6c13ad2.css.map": "/family-bookkeeping-react/static/css/main.e6c13ad2.css.map",
+    "main.38db7589.js.map": "/family-bookkeeping-react/static/js/main.38db7589.js.map",
+    "453.d8e63f4f.chunk.js.map": "/family-bookkeeping-react/static/js/453.d8e63f4f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.38db7589.js"
+  ]
+}
