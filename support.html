@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FamilyBookkeeping — Support</title>
+  <meta name="description" content="Support and contact information for the FamilyBookkeeping app." />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f8f6;
+      --card: #ffffff;
+      --text: #1a1f1a;
+      --muted: #4a5a4a;
+      --accent: #2e7d32;
+      --border: #e0ebe0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121612;
+        --card: #1c221c;
+        --text: #eef5ee;
+        --muted: #a8b5a8;
+        --border: #2a352a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--bg);
+    }
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    header {
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: 1.65rem;
+      margin: 0 0 0.35rem;
+      color: var(--accent);
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.75rem;
+    }
+    p { margin: 0 0 0.75rem; }
+    ul { margin: 0 0 0.75rem; padding-left: 1.25rem; }
+    a { color: var(--accent); }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>FamilyBookkeeping — Support</h1>
+      <p class="muted">Help for the FamilyBookkeeping mobile app (iOS &amp; Android).</p>
+    </header>
+
+    <section class="card">
+      <h2>Common topics</h2>
+      <ul>
+        <li><strong>Getting started:</strong> Sign in, create or join your family chain (when connected to your backend), then add expenses, miles, and hours.</li>
+        <li><strong>Offline use:</strong> Your data can be stored on your device. Optional hybrid sync sends changes to your configured backend when online.</li>
+        <li><strong>Backend / sync issues:</strong> In the app, open <strong>Settings</strong> → confirm the backend URL, hybrid mode, and run the backend connection test if available.</li>
+        <li><strong>Subscriptions:</strong> Purchases are handled through Apple App Store or Google Play; manage or cancel in your store account settings.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <p>
+        For app support, please email
+        <a href="mailto:your-support@yourdomain.com">your-support@yourdomain.com</a>
+        <span class="muted"> — update this address in <code>public/support.html</code> before you submit to the stores.</span>
+      </p>
+      <p class="muted">
+        Project repository:
+        <a href="https://github.com/zub165/family-bookkeeping-react" rel="noopener noreferrer">github.com/zub165/family-bookkeeping-react</a>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Privacy</h2>
+      <p>
+        See our <a href="./privacy.html">Privacy Policy</a>.
+      </p>
+    </section>
+
+    <footer>
+      <p>© <span id="y"></span> FamilyBookkeeping. This page is hosted for App Store / Play Console listing URLs.</p>
+    </footer>
+  </main>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
