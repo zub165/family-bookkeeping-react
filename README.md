@@ -216,3 +216,12 @@ src/
 - **Backend API**: https://api.mywaitime.com/family-api/
 - **Current Frontend**: https://zub165.github.io/book-keeping/
 - **New React App**: https://zub165.github.io/family-bookkeeping-react/
+
+### App Store Connect / Play Console (listing URLs)
+
+Static pages live in `public/` and deploy with GitHub Pages (`npm run deploy`):
+
+- **Support URL**: https://zub165.github.io/family-bookkeeping-react/support.html
+- **Privacy Policy URL**: https://zub165.github.io/family-bookkeeping-react/privacy.html
+
+Edit the `mailto:` placeholders in those HTML files before submission, then redeploy.

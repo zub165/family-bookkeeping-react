@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FamilyBookkeeping — Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for the FamilyBookkeeping app." />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f8f6;
+      --card: #ffffff;
+      --text: #1a1f1a;
+      --muted: #4a5a4a;
+      --accent: #2e7d32;
+      --border: #e0ebe0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121612;
+        --card: #1c221c;
+        --text: #eef5ee;
+        --muted: #a8b5a8;
+        --border: #2a352a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--bg);
+    }
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    header {
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: 1.65rem;
+      margin: 0 0 0.35rem;
+      color: var(--accent);
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      margin: 1.25rem 0 0.65rem;
+    }
+    h2:first-child { margin-top: 0; }
+    p { margin: 0 0 0.75rem; }
+    ul { margin: 0 0 0.75rem; padding-left: 1.25rem; }
+    a { color: var(--accent); }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>FamilyBookkeeping — Privacy Policy</h1>
+      <p class="muted">Last updated: <span id="updated"></span></p>
+    </header>
+
+    <article class="card">
+      <h2>Overview</h2>
+      <p>
+        FamilyBookkeeping (“the App”) helps households track expenses, miles, hours, and related family bookkeeping information.
+        This policy describes what information may be processed and how we treat it. Replace placeholders below with your legal entity name and contact details before production use.
+      </p>
+
+      <h2>Information you provide</h2>
+      <p>You may provide information such as names, email addresses, transaction descriptions, amounts, dates, categories, and similar bookkeeping entries.</p>
+
+      <h2>Local storage</h2>
+      <p>
+        The App is designed to work with data stored on your device (for example using local databases or device storage), so core bookkeeping data can remain on your phone or tablet unless you enable optional cloud or backend features.
+      </p>
+
+      <h2>Optional backend / sync</h2>
+      <p>
+        If you enable hybrid sync or connect to a backend API you configure, selected data may be transmitted over the internet to that server. That processing is governed by this policy together with your backend provider’s terms and security practices.
+      </p>
+
+      <h2>Purchases</h2>
+      <p>
+        Subscriptions or in-app purchases may be processed by Apple or Google. We do not receive your full payment card details from those stores.
+      </p>
+
+      <h2>Analytics &amp; crash data</h2>
+      <p>
+        If we enable diagnostics in a future release, we will describe what is collected (for example crash logs) and offer controls where required by platform policies.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        The App is not directed at children under 13. Do not allow children to use the App without appropriate parental involvement and compliance with applicable laws (including COPPA where applicable).
+      </p>
+
+      <h2>Your choices</h2>
+      <ul>
+        <li>You may delete the App from your device; local data may be removed depending on your device settings.</li>
+        <li>If you use backend sync, contact your administrator or support email for account-related requests.</li>
+      </ul>
+
+      <h2>Contact</h2>
+      <p>
+        Privacy inquiries:
+        <a href="mailto:your-privacy@yourdomain.com">your-privacy@yourdomain.com</a>
+        <span class="muted"> — update this address in <code>public/privacy.html</code> before you submit to the stores.</span>
+      </p>
+
+      <h2>Changes</h2>
+      <p>We may update this policy from time to time. The “Last updated” date will change when we do.</p>
+    </article>
+
+    <p><a href="./support.html">← Support</a></p>
+
+    <footer>
+      <p>© <span id="y"></span> FamilyBookkeeping.</p>
+    </footer>
+  </main>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('updated').textContent = new Date().toISOString().slice(0, 10);
+  </script>
+</body>
+</html>
