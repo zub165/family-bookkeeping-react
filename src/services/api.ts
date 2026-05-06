@@ -50,7 +50,6 @@ class ApiService {
             }
           } catch (refreshError) {
             this.clearAuth();
-            window.location.href = '/login';
             return Promise.reject(refreshError);
           }
         }
@@ -149,28 +148,39 @@ class ApiService {
     }
   }
 
+  private ensureAuthenticated(): void {
+    if (!this.isAuthenticated()) {
+      throw new Error('Not authenticated');
+    }
+  }
+
   // Family Members
   async getFamilyMembers(): Promise<FamilyMember[]> {
+    if (!this.isAuthenticated()) return [];
     const response = await this.api.get(API_CONFIG.ENDPOINTS.FAMILY.LIST);
     return response.data;
   }
 
   async createFamilyMember(data: Omit<FamilyMember, 'id' | 'created_at' | 'updated_at'>): Promise<FamilyMember> {
+    this.ensureAuthenticated();
     const response = await this.api.post(API_CONFIG.ENDPOINTS.FAMILY.CREATE, data);
     return response.data;
   }
 
   async updateFamilyMember(id: number, data: Partial<FamilyMember>): Promise<FamilyMember> {
+    this.ensureAuthenticated();
     const response = await this.api.put(API_CONFIG.ENDPOINTS.FAMILY.DETAIL(id), data);
     return response.data;
   }
 
   async deleteFamilyMember(id: number): Promise<void> {
+    this.ensureAuthenticated();
     await this.api.delete(API_CONFIG.ENDPOINTS.FAMILY.DETAIL(id));
   }
 
   // Expenses
   async getExpenses(familyMemberId?: number): Promise<Expense[]> {
+    if (!this.isAuthenticated()) return [];
     const url = familyMemberId 
       ? `${API_CONFIG.ENDPOINTS.EXPENSES.LIST}?family_member_id=${familyMemberId}`
       : API_CONFIG.ENDPOINTS.EXPENSES.LIST;
@@ -179,12 +189,14 @@ class ApiService {
   }
 
   async createExpense(data: Omit<Expense, 'id' | 'created_at' | 'updated_at'>): Promise<Expense> {
+    this.ensureAuthenticated();
     const response = await this.api.post(API_CONFIG.ENDPOINTS.EXPENSES.CREATE, data);
     return response.data;
   }
 
   // Miles
   async getMiles(familyMemberId?: number): Promise<Mile[]> {
+    if (!this.isAuthenticated()) return [];
     const url = familyMemberId 
       ? `${API_CONFIG.ENDPOINTS.MILES.LIST}?family_member_id=${familyMemberId}`
       : API_CONFIG.ENDPOINTS.MILES.LIST;
@@ -193,12 +205,14 @@ class ApiService {
   }
 
   async createMile(data: Omit<Mile, 'id' | 'created_at' | 'updated_at'>): Promise<Mile> {
+    this.ensureAuthenticated();
     const response = await this.api.post(API_CONFIG.ENDPOINTS.MILES.CREATE, data);
     return response.data;
   }
 
   // Hours
   async getHours(familyMemberId?: number): Promise<Hour[]> {
+    if (!this.isAuthenticated()) return [];
     const url = familyMemberId 
       ? `${API_CONFIG.ENDPOINTS.HOURS.LIST}?family_member_id=${familyMemberId}`
       : API_CONFIG.ENDPOINTS.HOURS.LIST;
@@ -207,12 +221,21 @@ class ApiService {
   }
 
   async createHour(data: Omit<Hour, 'id' | 'created_at' | 'updated_at'>): Promise<Hour> {
+    this.ensureAuthenticated();
     const response = await this.api.post(API_CONFIG.ENDPOINTS.HOURS.CREATE, data);
     return response.data;
   }
 
   // Statistics
   async getStatistics(familyMemberId?: number): Promise<Statistics> {
+    if (!this.isAuthenticated()) {
+      return {
+        total_expenses: 0,
+        total_miles: 0,
+        total_hours: 0,
+        total_deductions: 0,
+      };
+    }
     const url = familyMemberId 
       ? `${API_CONFIG.ENDPOINTS.STATISTICS}?family_member_id=${familyMemberId}`
       : API_CONFIG.ENDPOINTS.STATISTICS;
@@ -222,6 +245,7 @@ class ApiService {
 
   // Export/Import
   async exportData(format: 'excel' | 'csv', year: number): Promise<Blob> {
+    this.ensureAuthenticated();
     const response = await this.api.get(`${API_CONFIG.ENDPOINTS.EXPORT}?format=${format}&year=${year}`, {
       responseType: 'blob',
     });
@@ -229,6 +253,7 @@ class ApiService {
   }
 
   async importData(file: File, familyMemberId: number): Promise<{ message: string; errors: string[] }> {
+    this.ensureAuthenticated();
     const formData = new FormData();
     formData.append('file', file);
     formData.append('family_member_id', familyMemberId.toString());
@@ -243,6 +268,7 @@ class ApiService {
 
   // Tax Report
   async getTaxReport(year: number): Promise<TaxReport> {
+    this.ensureAuthenticated();
     const response = await this.api.get(`${API_CONFIG.ENDPOINTS.TAX_REPORT}?year=${year}`);
     return response.data;
   }

@@ -1,6 +1,7 @@
 // Sidebar Component for Family Bookkeeping React App
 
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Drawer,
   List,
@@ -40,8 +41,34 @@ const menuItems = [
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ open, onClose, currentTab, onTabChange }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const getPathForTab = (tab: string) => {
+    switch (tab) {
+      case 'dashboard':
+        return '/dashboard';
+      case 'family':
+        return '/family';
+      case 'expenses':
+        return '/expenses';
+      case 'hours':
+        return '/hours';
+      case 'miles':
+        return '/miles';
+      case 'reports':
+        return '/reports';
+      default:
+        return '/dashboard';
+    }
+  };
+
   const handleTabChange = (tab: string) => {
     onTabChange(tab);
+    const target = getPathForTab(tab);
+    if (location.pathname !== target) {
+      navigate(target);
+    }
     onClose();
   };
 
