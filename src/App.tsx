@@ -1,7 +1,7 @@
 // Main App Component for Family Bookkeeping React App
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { User, FamilyMember } from './types';
@@ -31,8 +31,6 @@ const GUEST_USER: User = {
   email: 'guest@local',
   first_name: 'Guest',
   last_name: 'User',
-  created_at: new Date().toISOString(),
-  updated_at: new Date().toISOString(),
 };
 
 const AppShell: React.FC = () => {

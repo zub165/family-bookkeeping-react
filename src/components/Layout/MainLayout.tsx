@@ -1,16 +1,7 @@
 // Main Layout Component for Family Bookkeeping React App
 
 import React, { useState } from 'react';
-import {
-  Box,
-  CssBaseline,
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  useTheme,
-  useMediaQuery,
-} from '@mui/material';
+import { Box, CssBaseline, AppBar, Toolbar, IconButton } from '@mui/material';
 import {
   Menu as MenuIcon,
 } from '@mui/icons-material';
@@ -34,8 +25,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   onTabChange,
 }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

@@ -1,7 +1,7 @@
 // API Service for Family Bookkeeping React App
 
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { API_CONFIG, API_TIMEOUT, TOKEN_REFRESH_THRESHOLD } from '../config/api';
+import axios, { AxiosInstance } from 'axios';
+import { API_CONFIG, API_TIMEOUT } from '../config/api';
 import { AuthTokens, LoginCredentials, RegisterData, User, FamilyMember, Expense, Mile, Hour, Statistics, TaxReport } from '../types';
 
 class ApiService {
